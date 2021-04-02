@@ -26,7 +26,7 @@ services:
       context: ./docker/webserver
     container_name: hivemind-webserver
     volumes:
-      - ./docker/webserver/hivemind-webserver-templates:/templates/
+      - ./docker/webserver/hivemind-webserver-templates:/tmp/
 
   proxy:
     build:
@@ -37,7 +37,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    depends_on:
+      - webserver
 
 volumes:
   hivemind-database-data:
-  hivemind-webserver-templates:

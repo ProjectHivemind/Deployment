@@ -18,4 +18,4 @@ RUN mkdir config
 
 COPY --from=build /go/src/teamserver/teamserver/server .
 
-CMD ["./server config/config.yaml"]
+CMD ["./server", "/config/config.yaml"]

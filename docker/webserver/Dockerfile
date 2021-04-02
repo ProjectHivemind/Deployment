@@ -16,7 +16,9 @@ FROM alpine as prod
 
 RUN mkdir templates
 
-COPY --from=build /go/src/webserver/server .
-COPY --from=build /go/src/webserver/templates/ templates/
+COPY --from=build /go/src/webserver/server /bin
+COPY --from=build /go/src/webserver/templates/ /templates
+COPY entrypoint.sh /usr/local/bin/
 
-CMD ["./server"]
+ENTRYPOINT entrypoint.sh
+CMD ["server"]
