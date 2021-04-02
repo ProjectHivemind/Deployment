@@ -1,0 +1,15 @@
+---
+database:
+  uri: "postgres"
+  port: "5432"
+  dbuser: "hivemind"
+  password: "changeme123"
+  sslmode: "disable"
+
+restapi:
+  port: "4321"
+
+listeners:
+  - tcp:
+      enabled: "true"
+      port: "1234"

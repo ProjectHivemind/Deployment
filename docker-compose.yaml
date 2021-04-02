@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres:13.1-alpine
+    container_name: hivemind-postgres
+    env_file:
+      - ./docker/database/database.env
+    volumes:
+      - ./docker/database/hivemind-database-data:/var/lib/postgresql/data/
+      - ./docker/database/init_db.sql:/docker-entrypoint-initdb.d/init.sql
+
+  teamserver:
+    build:
+      context: ./docker/teamserver/
+    container_name: hivemind-teamserver
+    ports:
+            - "1234:1234"
+            - "4321:4321"
+    volumes:
+      - ./docker/teamserver/config/:/config/
+
+  webserver:
+    build:
+      context: ./docker/webserver
+    container_name: hivemind-webserver
+    volumes:
+      - ./docker/webserver/hivemind-webserver-templates:/templates/
+
+  proxy:
+    build:
+      context: ./docker/proxy
+      # args:
+      #   DOMAIN: <your.domain.here>
+    container_name: hivemind-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+
+volumes:
+  hivemind-database-data:
+  hivemind-webserver-templates:
