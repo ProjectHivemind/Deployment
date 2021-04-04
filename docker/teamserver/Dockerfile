@@ -16,6 +16,6 @@ FROM alpine:latest as prod
 
 RUN mkdir config
 
-COPY --from=build /go/src/teamserver/teamserver/server .
+COPY --from=build /go/src/teamserver/teamserver/server /bin
 
-CMD ["./server", "/config/config.yaml"]
+CMD ["server", "/config/config.yaml"]

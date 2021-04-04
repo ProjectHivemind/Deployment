@@ -6,6 +6,11 @@ database:
   password: "changeme123"
   sslmode: "disable"
 
+users:
+  - username: "admin"
+    password: "admin"
+    permission: "1"
+
 restapi:
   port: "4321"
 

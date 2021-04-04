@@ -1,6 +1,6 @@
 #!/bin/ash
 
-cp /tmp/* /templates/
-cp /templates/* /tmp/
+cp -f /tmp/* /templates/
+cp -f /templates/* /tmp/
 
-server
+server config/config.yaml

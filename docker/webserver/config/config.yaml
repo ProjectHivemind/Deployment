@@ -1,0 +1,8 @@
+---
+webserver:
+  uri: "localhost"
+  port: "8080"
+
+restapi:
+  uri: "teamserver"
+  port: "4321"

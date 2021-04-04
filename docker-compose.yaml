@@ -27,6 +27,7 @@ services:
     container_name: hivemind-webserver
     volumes:
       - ./docker/webserver/hivemind-webserver-templates:/tmp/
+      - ./docker/webserver/config/:/config
 
   proxy:
     build:

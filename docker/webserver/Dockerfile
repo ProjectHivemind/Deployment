@@ -21,4 +21,4 @@ COPY --from=build /go/src/webserver/templates/ /templates
 COPY entrypoint.sh /usr/local/bin/
 
 ENTRYPOINT entrypoint.sh
-CMD ["server"]
+CMD ["server", "/config/config.yaml"]
