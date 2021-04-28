@@ -20,6 +20,8 @@ services:
       - "4321:4321"
     volumes:
       - ./docker/teamserver/config/:/config/
+    depends_on: 
+      - postgres
 
   webserver:
     build:
