@@ -11,7 +11,7 @@ To Deploy the most basic deployment of the latest hivemind teamserver and webser
 sudo docker-compose up -d
 ```
 This will spin up a teamserver, webserver, database, and reverse proxy server.
-- The webserver can be found at https://localhost:80
+- The webserver can be found at https://localhost
 - The teamserver API can be found on localhost:4321
 - The teamserver will start a TCP listener on localhost:1234
 
